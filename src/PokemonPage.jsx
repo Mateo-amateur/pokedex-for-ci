@@ -1,4 +1,3 @@
-@@ -0, 0 + 1, 63 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import LoadingSpinner from './LoadingSpinner'
@@ -27,7 +26,6 @@ const PokemonPage = ({ previous, next }) => {
   const normalAbility = pokemon.abilities.find((ability) => !ability.is_hidden)
   const hiddenAbility = pokemon.abilities.find((ability) => ability.is_hidden === true)
 
-  console.log('hiddenAbility=', hiddenAbility)
   return (
     <>
       <div className="links">

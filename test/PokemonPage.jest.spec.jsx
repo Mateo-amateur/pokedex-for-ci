@@ -6,9 +6,7 @@ import axiosMock from 'axios'
 import { act } from 'react-dom/test-utils'
 import '@testing-library/jest-dom/extend-expect'
 import PokemonPage from '../src/PokemonPage'
-
 jest.mock('axios')
-
 const previous = {
   url: 'https://pokeapi.co/api/v2/pokemon/132/',
   name: 'ditto',
@@ -19,7 +17,6 @@ const next = {
   name: 'vaporeon',
   id: 134
 }
-
 const pokemonList = {
   id: 133,
   abilities: [
@@ -70,17 +67,13 @@ const pokemonList = {
   ],
   sprites: { front_default: 'URL' }
 }
-
 const history = createMemoryHistory()
-
 describe('<PokemonPage />', () => {
   beforeEach(() => {
     history.push('/pokemon/eevee')
   })
-
   it('should render abilities', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
-
     await act(async () => {
       render(
         <Router history={history}>
@@ -88,14 +81,11 @@ describe('<PokemonPage />', () => {
         </Router>
       )
     })
-
     expect(screen.getByText('adaptability')).toBeVisible()
     expect(screen.getByText('anticipation')).toBeVisible()
   })
-
   it('should render stats', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
-
     await act(async () => {
       render(
         <Router history={history}>
@@ -103,13 +93,10 @@ describe('<PokemonPage />', () => {
         </Router>
       )
     })
-
     expect(screen.getByTestId('stats')).toHaveTextContent('hp55attack55')
   })
-
   it('should render previous and next urls if they exist', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
-
     await act(async () => {
       render(
         <Router history={history}>
@@ -117,14 +104,11 @@ describe('<PokemonPage />', () => {
         </Router>
       )
     })
-
     expect(screen.getByText('Previous')).toHaveAttribute('href', '/pokemon/ditto')
     expect(screen.getByText('Next')).toHaveAttribute('href', '/pokemon/vaporeon')
   })
-
   it('should not render previous and next urls if none exist', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
-
     await act(async () => {
       render(
         <Router history={history}>
@@ -132,7 +116,6 @@ describe('<PokemonPage />', () => {
         </Router>
       )
     })
-
     expect(screen.queryByText('Previous')).toBeNull()
     expect(screen.queryByText('Next')).toBeNull()
   })

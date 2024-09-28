@@ -2,8 +2,7 @@ module.exports = {
   "env": {
     "browser": true,
     "es6": true,
-    "jest/globals": true,
-    "node": true
+    "jest/globals": true
   },
   "extends": [
     "eslint:recommended",
@@ -22,8 +21,8 @@ module.exports = {
   "rules": {
     "indent": [
       "error",
-        2
-      ],
+      2
+    ],
     "linebreak-style": [
       "error",
       "unix"
@@ -44,7 +43,7 @@ module.exports = {
     "arrow-spacing": [
       "error", { "before": true, "after": true }
     ],
-    "no-console": "warn",
+    "no-console": "error",
     "react/prop-types": 0
   }
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 const PokemonList = ({ pokemonList }) => {
   return (
     <div className="list-container">
@@ -16,5 +15,4 @@ const PokemonList = ({ pokemonList }) => {
     </div>
   )
 }
-
 export default PokemonList

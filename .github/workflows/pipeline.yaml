@@ -15,6 +15,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+      - name: PNPM
+        run: corepack enable pnpm
       - name: Install dependens
         run: npm install --no-audit --no-fund --omit=optional
       # - name: Lint

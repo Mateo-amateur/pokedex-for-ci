@@ -18,7 +18,7 @@ jobs:
       - name: PNPM
         run: corepack enable pnpm
       - name: Install dependens
-        run: npm install --no-audit --no-fund --omit=optional
+        run: npm ci
       # - name: Lint
       #   run: npm run eslint
       # - name: Build
